@@ -13,7 +13,7 @@ class SelectedOptionIndicator extends StatelessWidget {
           height: 5,
           width: 5,
           decoration: BoxDecoration(
-            color: Colors.red,
+            color: Colors.lightGreen,
             borderRadius: BorderRadius.circular(10),
           ),
         ),

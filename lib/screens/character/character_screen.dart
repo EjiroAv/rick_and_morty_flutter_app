@@ -8,14 +8,14 @@ import 'package:rick_and_morty_flutter_app/models/character_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:rick_and_morty_flutter_app/screens/screens.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+class CharacterScreen extends StatefulWidget {
+  const CharacterScreen({Key? key}) : super(key: key);
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<CharacterScreen> createState() => _CharacterScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _CharacterScreenState extends State<CharacterScreen> {
   int selectedOption = 1;
   static int pageNumber = 1;
 
