@@ -19,14 +19,31 @@ class LoactionScreen extends StatefulWidget {
 class _LoactionScreenState extends State<LoactionScreen> {
   int selectedOption = 1;
   static int pageNumber = 1;
+  bool endOfList = false;
+  List<Result> result = [];
 
   Future<List<Result>> pageData(int offset) async {
-    final response = await http.Client().get(Uri.parse(
-        'https://rickandmortyapi.com/api/location/?page=$pageNumber'));
-    pageNumber++;
-    var locationResponse =
-        LocationResponse.fromJson(json.decode(response.body));
-    return locationResponse.results;
+    List<Result> empty = [];
+
+    if (endOfList == false) {
+      final response = await http.Client().get(Uri.parse(
+          'https://rickandmortyapi.com/api/location/?page=$pageNumber'));
+
+      var locationResponse =
+          LocationResponse.fromJson(json.decode(response.body));
+
+      result = locationResponse.results;
+
+      if (pageNumber == locationResponse.info.pages) {
+        endOfList = true;
+      } else {
+        pageNumber++;
+      }
+    } else {
+      return empty;
+    }
+
+    return result;
   }
 
   @override

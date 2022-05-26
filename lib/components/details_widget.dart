@@ -14,6 +14,7 @@ class DetailWidget extends StatelessWidget {
       children: [
         Text(
           title,
+          textAlign: TextAlign.start,
           style: const TextStyle(
             fontWeight: FontWeight.w600,
           ),
@@ -21,7 +22,13 @@ class DetailWidget extends StatelessWidget {
         const SizedBox(
           height: 5.0,
         ),
-        Text(detail),
+        SizedBox(
+          width: 200.0,
+          child: Text(
+            detail,
+            textAlign: TextAlign.start,
+          ),
+        ),
         const SizedBox(
           height: 10.0,
         )

@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pagination_view/pagination_view.dart';
 import 'package:rick_and_morty_flutter_app/components/app_components.dart';
-import 'package:rick_and_morty_flutter_app/components/app_sidebar.dart';
 import 'package:rick_and_morty_flutter_app/models/character_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:rick_and_morty_flutter_app/screens/screens.dart';
@@ -19,15 +18,31 @@ class CharacterScreen extends StatefulWidget {
 class _CharacterScreenState extends State<CharacterScreen> {
   int selectedOption = 1;
   static int pageNumber = 1;
+  bool endOfList = false;
+  List<Result> result = [];
 
   Future<List<Result>> pageData(int offset) async {
-    print(offset);
-    final response = await http.Client().get(Uri.parse(
-        'https://rickandmortyapi.com/api/character/?page=$pageNumber'));
-    pageNumber++;
-    var characterResponse =
-        CharacterResponse.fromJson(json.decode(response.body));
-    return characterResponse.results;
+    List<Result> empty = [];
+
+    if (endOfList == false) {
+      final response = await http.Client().get(Uri.parse(
+          'https://rickandmortyapi.com/api/character/?page=$pageNumber'));
+
+      var characterResponse =
+          CharacterResponse.fromJson(json.decode(response.body));
+
+      result = characterResponse.results;
+
+      if (pageNumber == characterResponse.info.pages) {
+        endOfList = true;
+      } else {
+        pageNumber++;
+      }
+    } else {
+      return empty;
+    }
+
+    return result;
   }
 
   @override

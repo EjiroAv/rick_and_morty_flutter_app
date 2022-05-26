@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rick_and_morty_flutter_app/models/character_model.dart';
 import 'package:rick_and_morty_flutter_app/screens/screens.dart';
 
-class ResidentsWidget extends StatelessWidget {
-  const ResidentsWidget(
+class CharacterInfoWidget extends StatelessWidget {
+  const CharacterInfoWidget(
       {Key? key,
       required this.imageURL,
       required this.name,

@@ -7,4 +7,4 @@ export 'location_widget.dart';
 export 'episodes_widget.dart';
 export 'app_sidebar.dart';
 export 'episode.dart';
-export 'resident_widget.dart';
+export 'character_info_widget.dart';

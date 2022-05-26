@@ -45,7 +45,7 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
         // String residentNumber = resident.replaceAll(RegExp(r'[^0-9]'), '');
 
         if (result.residents.contains(characterUrl)) {
-          residents.add(ResidentsWidget(
+          residents.add(CharacterInfoWidget(
             result: characterResult,
             name: characterResult.name,
             imageURL: characterResult.image,
@@ -89,7 +89,7 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
         body: SafeArea(
           child: Row(
             children: [
-              const AppSideBar(selectedOption: 2),
+              const AppSideBar(selectedOption: 3),
               SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(

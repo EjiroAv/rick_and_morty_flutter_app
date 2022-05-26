@@ -7,6 +7,7 @@ import 'package:rick_and_morty_flutter_app/components/app_components.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:rick_and_morty_flutter_app/models/episode_model.dart';
+import 'package:rick_and_morty_flutter_app/screens/screens.dart';
 
 class EpisodeScreen extends StatefulWidget {
   const EpisodeScreen({Key? key}) : super(key: key);
@@ -82,11 +83,11 @@ class _EpisodeScreenState extends State<EpisodeScreen> {
                         return GestureDetector(
                           behavior: HitTestBehavior.translucent,
                           onTap: () {
-                            /*  Navigator.push(context, MaterialPageRoute(
+                            Navigator.push(context, MaterialPageRoute(
                               builder: (context) {
-                                return LocationDetailScreen(result: result);
+                                return EpisodeDetailScreen(result: result);
                               },
-                            ));*/
+                            ));
                           },
                           child: Episodes(
                             name: result.name,

@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:rick_and_morty_flutter_app/screens/screens.dart';
 import 'app_components.dart';
 
+import 'package:url_launcher/url_launcher.dart';
+
+final Uri _rickAndMortyApi = Uri.parse('https://rickandmortyapi.com/');
+final Uri _githubUrl =
+    Uri.parse('https://github.com/EjiroAv/rick_and_morty_flutter_app');
+
 class AppSideBar extends StatelessWidget {
   const AppSideBar({
     Key? key,
@@ -26,9 +32,17 @@ class AppSideBar extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Icon(
-            Icons.indeterminate_check_box,
-            color: Colors.grey,
+          GestureDetector(
+            onTap: () {
+              _launchRickAndMortyApiUrl();
+            },
+            child: const SizedBox(
+              width: 34.0,
+              child: Text(
+                'Rick and Morty',
+                style: TextStyle(fontSize: 12.0),
+              ),
+            ),
           ),
           GestureDetector(
             onTap: () {
@@ -105,12 +119,30 @@ class AppSideBar extends StatelessWidget {
               ),
             ),
           ),
-          const Icon(
-            Icons.search,
-            color: Colors.grey,
-          ),
+          GestureDetector(
+            onTap: () {
+              _launchGithubUrl();
+            },
+            child: const SizedBox(
+              height: 40.0,
+              width: 30.0,
+              child: Text(
+                'GITHUB',
+              ),
+            ),
+          )
         ],
       ),
     );
   }
+}
+
+void _launchRickAndMortyApiUrl() async {
+  if (!await launchUrl(_rickAndMortyApi)) {
+    throw 'Could not launch $_rickAndMortyApi';
+  }
+}
+
+void _launchGithubUrl() async {
+  if (!await launchUrl(_githubUrl)) throw 'Could not launch $_githubUrl';
 }
