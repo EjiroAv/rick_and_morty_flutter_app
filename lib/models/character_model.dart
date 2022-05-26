@@ -31,7 +31,7 @@ class CharacterResponse {
 class Info {
   int count;
   int pages;
-  String next;
+  String? next;
   String? prev;
 
   Info({
@@ -61,7 +61,7 @@ class Result {
   String name;
   String? status;
   String? species;
-  String type;
+  String? type;
   String? gender;
   Location origin;
   Location location;
@@ -75,7 +75,7 @@ class Result {
     required this.name,
     this.status,
     required this.species,
-    required this.type,
+    this.type,
     required this.gender,
     required this.origin,
     required this.location,

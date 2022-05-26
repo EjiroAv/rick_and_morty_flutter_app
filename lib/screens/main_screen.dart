@@ -37,84 +37,8 @@ class _MainScreenState extends State<MainScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20.0,
-                vertical: 15.0,
-              ),
-              decoration: const BoxDecoration(
-                  border: Border(
-                      right: BorderSide(
-                color: Colors.grey,
-                width: 2.0,
-              ))),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Icon(
-                    Icons.indeterminate_check_box,
-                    color: Colors.grey,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedOption = 1;
-                      });
-                    },
-                    child: RotatedBox(
-                      quarterTurns: 3,
-                      child: Row(
-                        children: [
-                          selectedOption == 1
-                              ? const SelectedOptionIndicator()
-                              : const SizedBox(),
-                          const Text('Characters'),
-                        ],
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedOption = 2;
-                      });
-                    },
-                    child: RotatedBox(
-                      quarterTurns: 3,
-                      child: Row(
-                        children: [
-                          selectedOption == 2
-                              ? const SelectedOptionIndicator()
-                              : const SizedBox(),
-                          const Text('Locations'),
-                        ],
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedOption = 3;
-                      });
-                    },
-                    child: RotatedBox(
-                      quarterTurns: 3,
-                      child: Row(
-                        children: [
-                          selectedOption == 3
-                              ? const SelectedOptionIndicator()
-                              : const SizedBox(),
-                          const Text('Episodes'),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const Icon(
-                    Icons.search,
-                    color: Colors.grey,
-                  ),
-                ],
-              ),
+            const AppSideBar(
+              selectedOption: 1,
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.7,

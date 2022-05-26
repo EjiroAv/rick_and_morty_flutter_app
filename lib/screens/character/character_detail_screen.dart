@@ -179,14 +179,14 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                         height: 20.0,
                       ),
                       DetailWidget(
-                        title: 'Origin',
+                        title: 'Origin:',
                         detail: result.origin.name,
                       ),
                       result.type == ''
                           ? const SizedBox()
                           : DetailWidget(
                               title: 'Type/SubSpecies:',
-                              detail: result.type,
+                              detail: result.type!,
                             ),
                       DetailWidget(
                         title: "Last Know Location:",
@@ -221,30 +221,5 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
             ],
           ),
         ));
-  }
-}
-
-class EpisodesWidget extends StatelessWidget {
-  const EpisodesWidget({
-    Key? key,
-    required this.episode,
-  }) : super(key: key);
-
-  final String episode;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 30.0,
-      width: 60.0,
-      decoration: BoxDecoration(
-        color: Colors.green,
-        borderRadius: BorderRadius.circular(5.0),
-      ),
-      child: Center(
-          child: Text(
-        episode,
-        style: const TextStyle(color: Colors.white),
-      )),
-    );
   }
 }
