@@ -38,6 +38,7 @@ dependencies:
   http: ^0.13.4
   pagination_view: ^2.0.0
   url_launcher: ^6.1.2
+  device_preview: ^1.1.0
 
 dev_dependencies:
   flutter_test:

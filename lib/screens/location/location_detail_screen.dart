@@ -68,6 +68,7 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
   @override
   void initState() {
     super.initState();
+
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       // executes after build
       getResidentInfo();

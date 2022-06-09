@@ -68,11 +68,11 @@ class _EpisodeDetailScreenState extends State<EpisodeDetailScreen> {
   @override
   void initState() {
     super.initState();
+
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       // executes after build
       getCharacterInfo();
     });
-
     /* Result result = widget.result;
     for (String resident in result.residents) {
       String residentNumber = resident.replaceAll(RegExp(r'[^0-9]'), '');

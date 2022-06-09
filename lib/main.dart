@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rick_and_morty_flutter_app/screens/main_screen.dart';
+import 'package:rick_and_morty_flutter_app/screens/screens.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +27,7 @@ class RickAndMortyFlutterApp extends StatelessWidget {
         theme: ThemeData(
           textTheme: GoogleFonts.poppinsTextTheme(),
         ),
-        home: const MainScreen(),
+        home: const CharacterScreen(),
       ),
       designSize: const Size(375, 812),
     );
